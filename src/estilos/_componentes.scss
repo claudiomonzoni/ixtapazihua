@@ -1,0 +1,6 @@
+@use "variables" as *;
+
+.bandeja {
+  width: min(100% - 5rem, 50rem);
+  margin-inline: auto;
+}
