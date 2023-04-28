@@ -45,7 +45,7 @@ ul {
 
 h1,
 h2, h3 {
-  line-height: 0.9em;
+  line-height: 1em;
   font-family: "DM Serif Display", serif;
 }
 h1 {
@@ -68,4 +68,30 @@ img {
 }
 a {
   text-decoration: none;
+  display: inline-block;
+  @extend .anime;
+  &:hover{
+    color: $naranja;
+    transform: scale(1.1);
+  }
+}
+
+.selected{
+    color: $naranja;
+    transform: scale(1.1);
+
+}
+.cta{
+  background: $naranja;
+  color: #fff;
+  margin: 1.5rem 0;
+  padding: .3rem 1rem;
+  border-radius: $radio;
+  text-transform: uppercase;
+  font-weight: 100;
+  
+}
+.cta:hover{
+  background: $acento!important;
+  color: $azul!important;  
 }

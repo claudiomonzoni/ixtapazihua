@@ -1,0 +1,53 @@
+---
+export interface props{
+    titulo: string;
+    extracto: string;
+    cta: string;
+    href: string;
+}
+const{titulo, extracto, cta, href} =Astro.props;
+---
+<div id="hero" class="bandeja">
+    <div class="izq">
+        <h1>{titulo}</h1>
+        <!-- para poder renderear tag de html set:html dentro del tag sin agregarrlo en el child-->
+        <p set:html={extracto}></p>
+        <a href="#" class="cta" set:html={cta}></a>
+    </div>
+    <div class="der">
+        <img src={href} alt={titulo}>
+    </div>
+</div>
+
+<style lang="scss">
+    @import "../estilos/_variables.scss";
+#hero {
+    background: $azul;
+    padding: $margen;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  h1{
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  p{
+    color: #fff;
+  }
+  .izq{  
+    flex: 1 0 60%;
+    padding: $margen;
+  }
+  .der{
+    border: solid;
+    flex: 1 0 40%;
+
+    img{
+      width: 28vw;
+      height: auto;
+      object-fit: cover;
+      position: absolute;
+      top: 0rem;
+    }
+  }
+</style>
