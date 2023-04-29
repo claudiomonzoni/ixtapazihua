@@ -1,53 +1,85 @@
 ---
-export interface props{
-    titulo: string;
-    extracto: string;
-    cta: string;
-    href: string;
+export interface props {
+  titulo: string;
+  extracto: string;
+  cta: string;
+  href: string;
 }
-const{titulo, extracto, cta, href} =Astro.props;
+const { titulo, extracto, cta, href } = Astro.props;
 ---
+
 <div id="hero" class="bandeja">
-    <div class="izq">
-        <h1>{titulo}</h1>
-        <!-- para poder renderear tag de html set:html dentro del tag sin agregarrlo en el child-->
-        <p set:html={extracto}></p>
-        <a href="#" class="cta" set:html={cta}></a>
-    </div>
-    <div class="der">
-        <img src={href} alt={titulo}>
-    </div>
+  <div class="izq">
+    <h1>{titulo}</h1>
+    <!-- para poder renderear tag de html set:html dentro del tag sin agregarrlo en el child-->
+    <p set:html={extracto} />
+    <a href="#" class="cta" set:html={cta} />
+  </div>
+  <div class="der">
+    <img src={href} alt={titulo} />
+  </div>
 </div>
 
 <style lang="scss">
-    @import "../estilos/_variables.scss";
-#hero {
+  @import "../estilos/_variables.scss";
+  #hero {
     background: $azul;
     padding: $margen;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    min-height: 70vh;
+    @include cel{
+      min-height: 50vw;
+      margin-top: 40vh;
+    }
+
   }
-  h1{
+  h1 {
     color: #fff;
     margin-bottom: 1rem;
   }
-  p{
+  p {
     color: #fff;
   }
-  .izq{  
+  .izq {
     flex: 1 0 60%;
-    padding: $margen;
+    justify-content: center;
+    padding: 0 $margen;
+    a {
+      margin: 1rem 0 0 0;
+    }
+    @include cel{
+      flex: 1 0 100%;
+      padding: $margen;
+      order: 2;
+    }
   }
-  .der{
-    border: solid;
+  .der {
     flex: 1 0 40%;
-
-    img{
-      width: 28vw;
-      height: auto;
+    
+    img {
+      width: 32.5vw;
+      height: 87vh;
       object-fit: cover;
       position: absolute;
       top: 0rem;
+    }
+    
+    @include cel{
+      flex: 1 0 100%;
+      order: 1;
+      img{
+        width: 100%;
+        height: 60vh;
+        object-fit: cover;
+       top: 0;
+       left: 0;
+       z-index: -1;
+   
+        // margin-top: $margen;
+      }
     }
   }
 </style>

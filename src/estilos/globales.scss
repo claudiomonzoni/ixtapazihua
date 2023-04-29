@@ -5,18 +5,18 @@
 
 html {
   box-sizing: border-box;
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: clamp(14px, 1.3vw, 18px);
   color: $gris;
   font-family: "Poppins", sans-serif;
   background: rgb(242, 238, 227);
-  background: linear-gradient(
-      180deg,
-      $beige 0%,
-      #ffffff 30%,
-      #fff 50%,
-      $beige 100%
-    )
-    no-repeat;
+  // background: linear-gradient(
+  //     180deg,
+  //     $beige 0%,
+  //     #ffffff 30%,
+  //     #fff 50%,
+  //     $beige 100%
+  //   )
+    // no-repeat;
   scroll-behavior: smooth;
 }
 

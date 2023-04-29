@@ -13,6 +13,7 @@
 	</ul>
 </nav>
 <style lang="scss">
+	@import "../estilos/_variables.scss";
 nav{
 	display: flex;
 	align-items: center;
@@ -25,13 +26,22 @@ nav{
 			height: auto;
 		}
 	}
+	@include cel{
+		height: 10vh;
+		#logo{
+			width:50%;
+		}
+	}
 	ul{
 		display: inherit;
 		li{
-			margin-left: 0.8rem;
+			margin-left: 20%;
 		}
 		a{
 			font-family: "DM Serif Display", serif;
+		}
+		@include cel{
+			display: none;
 		}
 	}
 }
