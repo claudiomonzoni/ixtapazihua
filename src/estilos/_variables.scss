@@ -11,7 +11,8 @@ $cel: 479px;
 $nocel: 479px;
 $tableta: 768px;
 $tableta-land: 1024px;
-$hd: 1600px;
+$hd:1600px;
+$hdplus:1990px;
 
 
 
@@ -40,7 +41,13 @@ $hd: 1600px;
 }
 
 @mixin hd {
-  @media (min-width: #{$hd}) {
+  @media (min-width: #{$hd}) and (max-width: #{$hdplus}) {
+    @content;
+  }
+}
+
+@mixin hdplus {
+  @media (min-width: #{$hdplus}) {
     @content;
   }
 }

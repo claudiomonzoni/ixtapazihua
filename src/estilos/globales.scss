@@ -5,7 +5,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: clamp(14px, 1.3vw, 18px);
+  font-size: clamp(14px, 1.5vw, 24px);
   color: $gris;
   font-family: "Poppins", sans-serif;
   background: rgb(242, 238, 227);
@@ -94,4 +94,27 @@ a {
 .cta:hover{
   background: $acento!important;
   color: $azul!important;  
+}
+// decoracion en el comp de Hero (coco flotando o culaquier imagen que se inyecte en el slot
+.decor{
+  position: absolute;
+  top:85%;
+  width: 150px;
+
+  @include cel{
+    top:87%;
+    right: 5%;
+    width: 130px;
+  }
+
+  @include hd{
+    width: 220px;
+    top:85%;
+  }
+  @include hdplus{
+    width: 300px;
+    top:85%;
+  }
+
+
 }

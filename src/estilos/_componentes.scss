@@ -1,8 +1,16 @@
 @use "variables" as *;
 
 .bandeja {
-  width: min(100% - 5rem, 70rem);
+  width: min(100% - 5rem, 60rem);
   margin-inline: auto;
+
+  @include hd{
+    width: min(100% - 5rem, 70rem);
+  }
+
+  @include hdplus{
+    width: min(100% - 5rem, 90rem);
+  }
 }
 
 .anime{

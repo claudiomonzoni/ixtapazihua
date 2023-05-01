@@ -18,6 +18,8 @@ const { titulo, extracto, cta, href } = Astro.props;
   <div class="der">
     <img src={href} alt={titulo} />
   </div>
+  <!-- slot para agregar desde la fuente cosas extras -->
+  <slot />
 </div>
 
 <style lang="scss">
