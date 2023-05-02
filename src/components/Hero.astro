@@ -19,8 +19,8 @@ const { titulo, extracto, cta, href } = Astro.props;
     <img src={href} alt={titulo} />
   </div>
   <!-- slot para agregar desde la fuente cosas extras -->
-  <slot />
 </div>
+<slot />
 
 <style lang="scss">
   @import "../estilos/_variables.scss";
@@ -63,10 +63,11 @@ const { titulo, extracto, cta, href } = Astro.props;
     
     img {
       width: 32.5vw;
-      height: 87vh;
+      height: 93vh;
       object-fit: cover;
       position: absolute;
       top: 0rem;
+      border-radius: 0 0 $radio $radio;
     }
     
     @include cel{

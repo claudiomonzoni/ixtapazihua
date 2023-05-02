@@ -99,17 +99,19 @@ a {
 .decor{
   position: absolute;
   top:85%;
+  left: 50%;
   width: 150px;
 
+
   @include cel{
-    top:87%;
+    top:74%;
     right: 5%;
     width: 130px;
   }
 
   @include hd{
     width: 220px;
-    top:85%;
+    top:55%;
   }
   @include hdplus{
     width: 300px;
