@@ -8,7 +8,8 @@ html {
   font-size: clamp(14px, 1.5vw, 24px);
   color: $gris;
   font-family: "Poppins", sans-serif;
-  background: rgb(242, 238, 227);
+  // background: rgb(242, 238, 227);
+  background: #fff;
   // background: linear-gradient(
   //     180deg,
   //     $beige 0%,
@@ -98,24 +99,21 @@ a {
 // decoracion en el comp de Hero (coco flotando o culaquier imagen que se inyecte en el slot
 .decor{
   position: absolute;
-  top:85%;
-  left: 50%;
+  top:5vw;
+  left: 45%;
   width: 150px;
 
-
   @include cel{
-    top:74%;
+    top:40vh;
     right: 5%;
     width: 130px;
   }
 
   @include hd{
     width: 220px;
-    top:55%;
   }
   @include hdplus{
     width: 300px;
-    top:85%;
   }
 
 

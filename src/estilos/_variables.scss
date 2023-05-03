@@ -5,6 +5,7 @@ $acento: #F9A20E;
 $gris: #404040;
 $verde: #085147;
 $beige: #F2EEE3;
+$fondo: #FDEFCB;
 
 //media query
 $cel: 479px;
@@ -55,3 +56,5 @@ $hdplus:1990px;
 $radio: 0.5rem;
 $margen: 2rem;
 $margen-top: 4rem;
+// intentar con min
+$margen-riel: calc((100% - (100% - 5rem)) / 2 );
