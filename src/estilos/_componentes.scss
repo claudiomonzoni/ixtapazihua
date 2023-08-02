@@ -5,7 +5,7 @@
   margin-inline: auto;
 
   @include hd{
-    width: min(100% - 5rem, 70rem);
+    width: min(100% - 5rem, 95rem);
   }
 
   @include hdplus{
