@@ -19,7 +19,7 @@
           <a href="#" class="cta"> playa Las Gatas</a>
         </div>
       </div>
-      <img src="https://placeimg.com/1000/1000/nature" alt="alternativo" />
+      <img src="https://placehold.jp/3d4070/ffffff/600x600.png" alt="alternativo" />
     </div>
     <div class="playa">
       <div class="bloque">
@@ -30,7 +30,7 @@
           <a href="#" class="cta"> playa Las Gatas</a>
         </div>
       </div>
-      <img src="https://placeimg.com/1000/1000/nature" alt="alternativo" />
+      <img src="https://placehold.jp/3d4070/ffffff/600x600.png" alt="alternativo" />
     </div>
     <div class="playa">
       <div class="bloque">
@@ -40,7 +40,7 @@
           <a href="#" class="cta"> playa Las Gatas</a>
         </div>
       </div>
-      <img src="https://placeimg.com/1000/1000/nature" alt="alternativo" />
+      <img src="https://placehold.jp/3d4070/ffffff/600x600.png" alt="alternativo" />
     </div>
   </div>
 </div>
@@ -54,16 +54,21 @@
     align-items: center;
     margin-left: $margen-riel;
     margin-top: $margen-top;
+    @include cel{
+      margin-top: $margen-top-cel;
+    }
+
     @include cel {
       flex-wrap: wrap;
       .info {
         margin-right: none;
-        margin-bottom: 2rem;
+        margin-bottom:$margen-cel;
       }
     }
   }
   .info {
     margin-right: $margen;
+
     h3 {
       color: $naranja;
       padding-bottom: 1rem;
@@ -76,12 +81,13 @@
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 60%;
-    @include cel {
-      grid-auto-columns: 80%;
-    }
     gap: 1rem;
     background: $fondo;
     background: linear-gradient(0deg, rgba(255,255,255,0) 10%, $fondo 10%, $fondo 50%, $fondo 90%, rgba(255,255,255,0) 90%);
+    
+    @include cel {
+      grid-auto-columns: 80%;
+    }
   }
   .playa {
     display: grid;
@@ -104,6 +110,10 @@
       justify-content: center;
       border-radius: $margen;
       padding: $margen;
+      @include cel{
+        border-radius: $margen-cel;
+      padding: $margen-cel;
+    }
       order: 2;
       position: relative;
       img{

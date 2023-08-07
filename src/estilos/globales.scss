@@ -6,6 +6,9 @@
 html {
   box-sizing: border-box;
   font-size: clamp(14px, 1.5vw, 24px);
+  @include hd {
+    font-size: clamp(14px, 1.5vw, 21px);
+  }
   color: $gris;
   font-family: "Poppins", sans-serif;
   // background: rgb(242, 238, 227);
@@ -56,6 +59,9 @@ h1 {
 }
 h2 {
   font-size: clamp(2em, 3vw, 60vw);
+  @include hd{
+    font-size: clamp(1.5em, 2.3vw, 50vw);
+  }
 }
 
 
@@ -89,6 +95,9 @@ a {
   margin: 1.5rem 0 0;
   padding: .3rem 1rem;
   border-radius: $radio;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: clamp(.7rem, 1.4vw, 1rem);
   font-weight: 100;
   font-size: clamp(1.2rem, .8vw, 1.3vw);
   
