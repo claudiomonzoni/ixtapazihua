@@ -1,0 +1,66 @@
+---
+export interface props {
+  encabezado: string;
+  texto: string;
+  liga: string;
+  imagen: string;
+}
+---
+
+<section id="banner">
+  <div class="ima">
+    <img
+      src="palma-banner-ixtapa-zihua.png"
+      alt="palma de ixtapa zihuatanejo"
+    />
+  </div>
+  <div class="info">
+    <div class="conte">
+      <h2>En el mar, la vida es más...</h2>
+      <p>
+        Claro que lo sabes, <b>“Sabrosa”</b>, dentro de nuestro proyecto no
+        dejaremos de lado la riquisima comida local, es nuestro proximo paso,
+        listar los mejores restaurantes, fondas y bares así como tips para comer
+        como los zancas.
+      </p>
+      <a href="#" class="cta-azul">Ver todas las playas</a>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../estilos/_variables.scss";
+  #banner {
+    background: $naranja;
+    color: #fff;
+    display: flex;
+    margin-top: $margen-top;
+    margin-right: $margen-riel;
+    border-radius: 0 $radio $radio 0;
+    position: relative;
+    .ima {
+      position: relative;
+      flex: 1 0 50%;
+      min-height: 70vh;
+      img {
+        position: absolute;
+        bottom: 0;
+        object-fit: cover;
+        height: 110%;
+      }
+    }
+    .info {
+      flex: 1 0 50%;
+      display: inherit;
+      justify-content: center;
+      align-items: center;
+      padding: 0 $margen;
+      border-top: solid 5rem transparent;
+      border-left: solid 1px #fff;
+      border-bottom: solid 5rem transparent;
+      .conte {
+        width: 80%;
+      }
+    }
+  }
+</style>

@@ -48,6 +48,7 @@ h1,
 h2, h3 {
   line-height: 1em;
   font-family: "DM Serif Display", serif;
+  padding-bottom: .7rem;
 }
 h1 {
   color: $azul;
@@ -82,20 +83,38 @@ a {
     transform: scale(1.1);
 
 }
-.cta{
+@mixin cta($azulc){
   background: $naranja;
   color: #fff;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 0;
   padding: .3rem 1rem;
   border-radius: $radio;
-  text-transform: uppercase;
   font-weight: 100;
+  font-size: clamp(1.2rem, .8vw, 1.3vw);
+  
+  &:hover{
+    background: $acento;
+    color: $azul;  
+  }
+  
+  @if $azulc {
+    background: $fondo;
+    color: $azul;
+    &:hover{
+      background: $azul;
+      color: $fondo;  
+    }
+    
+  }
   
 }
-.cta:hover{
-  background: $acento!important;
-  color: $azul!important;  
+.cta{
+@include cta($azulc : false);
 }
+.cta-azul{
+@include cta($azulc : true);
+}
+
 // decoracion en el comp de Hero (coco flotando o culaquier imagen que se inyecte en el slot
 .decor{
   position: absolute;

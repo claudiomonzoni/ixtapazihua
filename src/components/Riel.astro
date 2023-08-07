@@ -12,6 +12,7 @@
   <div class="riel">
     <div class="playa">
       <div class="bloque">
+        <img src="icono-localizcion.svg" alt="simbolo de la playa">
         <div class="conte">
           <h2>Playa Las Gatas</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -22,6 +23,7 @@
     </div>
     <div class="playa">
       <div class="bloque">
+        <img src="icono-localizcion.svg" alt="simbolo de la playa">
         <div class="conte">
           <h2>Playa Las Gatas</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -79,7 +81,7 @@
     }
     gap: 1rem;
     background: $fondo;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 10%, $fondo 10%, $fondo 50%, $fondo 90%, rgba(255,255,255,1) 90%);
+    background: linear-gradient(0deg, rgba(255,255,255,0) 10%, $fondo 10%, $fondo 50%, $fondo 90%, rgba(255,255,255,0) 90%);
   }
   .playa {
     display: grid;
@@ -103,6 +105,12 @@
       border-radius: $margen;
       padding: $margen;
       order: 2;
+      position: relative;
+      img{
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+      }
      
       @include cel {
         grid-column: 2 / span 1;
