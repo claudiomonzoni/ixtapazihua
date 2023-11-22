@@ -19,6 +19,9 @@ transition: all .5s ease-in-out;
 
 #introhome{
   margin-top:$margen-top;
+  @include cel{
+    margin-top:$margen-top-cel;
+  }
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -30,7 +33,7 @@ transition: all .5s ease-in-out;
     border-right: solid 1px $azul;
     padding: 0 $margen;
     @include cel {
-      padding: 1rem $margen;
+      padding: 0 1rem;
       border-right: none;
       flex: 0 1 100%
       }

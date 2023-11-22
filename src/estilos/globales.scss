@@ -5,9 +5,9 @@
 
 html {
   box-sizing: border-box;
-  font-size: clamp(14px, 1.5vw, 24px);
-  @include hd {
-    font-size: clamp(14px, 1.5vw, 21px);
+  font-size: clamp(12px, 1.4vw, 22px);
+  @include cel {
+    font-size: clamp(16px, 1.5vw, 24px);
   }
   color: $gris;
   font-family: "Poppins", sans-serif;
@@ -52,12 +52,15 @@ h2, h3 {
   line-height: 1em;
   font-family: "DM Serif Display", serif;
 }
+h3{
+  line-height:1.2em;
+}
 h1 {
   color: $azul;
-  font-size: clamp(3em, 5vw, 90vw);
+  font-size: clamp(2em, 4vw, 30vw);
 }
 h2 {
-  font-size: clamp(2em, 3vw, 60vw);
+  font-size: clamp(1.5em, 2vw, 20vw);
   @include hd{
     font-size: clamp(1.5em, 2.3vw, 50vw);
   }
@@ -94,9 +97,12 @@ a {
   margin: 1.5rem 0;
   padding: .3rem 1rem;
   border-radius: $radio;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: 400;
   font-size: clamp(.7rem, 1.4vw, 1rem);
+  @include cel{
+    font-size: 1.2rem;
+  }
   
 }
 .cta:hover{
