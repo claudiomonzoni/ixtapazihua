@@ -10,9 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.3.0"
+    "astro": "^3.5.4"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.3",
     "sass": "^1.62.1"
+  },
+  "engines": {
+    "node": ">=16.13.0"
   }
 }

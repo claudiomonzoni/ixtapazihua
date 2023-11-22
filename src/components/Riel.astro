@@ -12,6 +12,7 @@
   <div class="riel">
     <div class="playa">
       <div class="bloque">
+        <img src="icono-localizcion.svg" alt="simbolo de la playa">
         <div class="conte">
           <h2>Playa Las Gatas</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -22,6 +23,7 @@
     </div>
     <div class="playa">
       <div class="bloque">
+        <img src="icono-localizcion.svg" alt="simbolo de la playa">
         <div class="conte">
           <h2>Playa Las Gatas</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -115,6 +117,12 @@
       @include cel{
         border-radius: $margen-cel;
         padding: $margen-cel;
+      }
+      position: relative;
+      img{
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
       }
      
       @include cel {
