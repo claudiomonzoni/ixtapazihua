@@ -6,6 +6,8 @@ export interface Props {
 
 const { title, descripcion } = Astro.props;
 import "../estilos/globales.scss"
+import Footer from "../components/Footer.astro";
+import Menu from "../components/Menu.astro";
 ---
 
 <!DOCTYPE html>
@@ -20,10 +22,12 @@ import "../estilos/globales.scss"
 		<title>{title}</title>
 	</head>
 	<body>
+		<Menu></Menu>
 		<slot />
+		<Footer></Footer>
 	</body>
 </html>
-<style is:global>
+<!-- <style is:global>
 	:root {
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
@@ -36,4 +40,4 @@ import "../estilos/globales.scss"
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
-</style>
+</style> -->

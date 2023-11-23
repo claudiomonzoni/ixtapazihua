@@ -16,7 +16,8 @@ const { titulo, extracto, cta, href } = Astro.props;
     <a href="#" class="cta" set:html={cta} />
   </div>
   <div class="der">
-    <img src={href} alt={titulo} />
+    <!-- <img src={href} alt={titulo} /> -->
+    <video autoplay loop controls src={href}></video>
   </div>
   <!-- slot para agregar desde la fuente cosas extras -->
   <div class="relativo">
@@ -39,10 +40,11 @@ const { titulo, extracto, cta, href } = Astro.props;
     justify-content: center;
     align-content: center;
     min-height: 70vh;
-
+    
     @include cel{
       min-height: 50vw;
       margin-top: 40vh;
+      padding: 0;
     }
 
   }
@@ -69,7 +71,7 @@ const { titulo, extracto, cta, href } = Astro.props;
   .der {
     flex: 1 0 40%;
     
-    img {
+    video {
       width: 32.5vw;
       height: 93vh;
       object-fit: cover;
@@ -81,7 +83,7 @@ const { titulo, extracto, cta, href } = Astro.props;
     @include cel{
       flex: 1 0 100%;
       order: 1;
-      img{
+      video{
         width: 100%;
         height: 60vh;
         object-fit: cover;

@@ -1,0 +1,118 @@
+---
+
+---
+
+<footer>
+  <div class="bandeja elpie">
+    <div class="logo">
+      <img
+        src="ixtapa-zihua-logo-footer.svg"
+        alt="Guia de Ixtapa Zihuatanejo"
+      />
+    </div>
+    <ul>
+      <li><a href="#">Playas</a></li>
+      <li><a href="#">Lugares de interes</a></li>
+      <li><a href="#">Hoteles</a></li>
+      <li><a href="#">Conoce Ixtapa Zihuatanejo</a></li>
+      <li><a href="#">Mis fovoritos</a></li>
+      <li><a href="#">Mis Planes</a></li>
+      <li><a href="#">Mapa impreso de Ixtapa Zihuatanejo</a></li>
+    </ul>
+  </div>
+
+  <div class="bandeja newsletter">
+   <div class="izq">
+    <h3>Ahorra al viajar</h3>
+    <p>
+      Al suscribirte recibiras ofertas y <b
+        >descuentos para tus vacaciones en Ixtapa Zihuatanejo</b
+      >
+    </p>
+   </div>
+   <div class="der">
+    <input type="email" name="email" id="email" placeholder="Ingresa tu email">
+    <input type="submit" value="Apuntame">
+   </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @import "../estilos/_variables.scss";
+
+  footer {
+    margin-top: $margen;
+    background: $azul;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 40%,
+      $azul 40%
+    );
+    padding-bottom: $margen;
+  }
+
+  .elpie {
+    background: $beige;
+    border-radius: $radio;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $margen;
+    @include cel {
+      flex-wrap: wrap;
+    }
+    .logo {
+      flex: 1 1 20%;
+      display: flex;
+      justify-content: center;
+    }
+    ul {
+      flex: 1 1 auto;
+      display: inherit;
+      flex-wrap: wrap;
+      gap: 1rem;
+      li {
+        list-style: disc;
+        margin: 0 0 0 1rem;
+      }
+    }
+  }
+  .bandeja {
+    padding: $margen;
+  }
+  .newsletter {
+    color: #fff;
+    border-bottom: solid 1px #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $margen;
+    .izq{
+        flex: 1 1 50%;
+    }
+    .der{
+        flex: 1 1 50%;
+        display: flex;
+    }
+    h3 {
+      font-size: clamp(2rem, 2dvw, 2.3rem);
+    }
+  }
+  input{
+    border: none;
+    margin: 0;
+    padding: 1rem;
+    border-radius:  $radio 0 0 $radio;
+    vertical-align:middle; 
+    white-space:0;
+  }
+  
+  input[type="submit"]{
+    border: none;
+    margin: 0;
+    padding: 1rem;
+    background: $naranja;
+    border-radius: 0 $radio $radio 0;
+  }
+</style>

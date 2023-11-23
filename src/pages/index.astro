@@ -1,15 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Menu from '../components/Menu.astro';
 import Hero from '../components/Hero.astro';
 import Riel from '../components/Riel.astro';
-import BannerHero from '../components/Banner-hero.astro';
 import BannerInfo from '../components/BannerInfo.astro';
 ---
 
-<Layout title="Tu guia de viaje a Ixtapa Zihuatanejo" descripcion="Tu guia de playas, comida y mejores lugares para conocer en Ixtapa Zihuatanejo">
-	<Menu></Menu>
-	<Hero titulo="¡Conoce Ixtapa Zihuatanejo!" extracto="Ixtapazihua.com es un <b> proyecto en proceso con el fin de mostrarte Ixtapa y Zihua </b> como si te guiara un local, con el fín de que te muevas como un pez en el agua en tus vacaciones."  cta="ver <b>playas</b>" href="https://placehold.jp/1920x1080.png" >
+<Layout title="Aquí enpieza tu viaje a Ixtapa Zihuatanejo" descripcion="Tu guia local de playas, comida y mejores lugares para conocer en Ixtapa Zihuatanejo">
+
+	<Hero titulo="¡Conoce Ixtapa Zihuatanejo!" extracto="Ixtapazihua.com es un <b> proyecto en proceso con el fin de mostrarte Ixtapa y Zihua </b> como si te guiara un local, con el fín de que te muevas como un pez en el agua en tus vacaciones."  cta="ver <b>playas</b>" href="video-home.mp4" >
 	<img src="coco.png" alt="coco en ixtapa zihuatanejo" class="decor">
 	</Hero>
 
@@ -24,7 +22,7 @@ import BannerInfo from '../components/BannerInfo.astro';
 
 	
 	<Riel></Riel>
-	<BannerHero titulo="En el mar de Zihua, la vida es mas sabrosa"></BannerHero>
-	<BannerInfo></BannerInfo>
+	
+	<BannerInfo encabezado="En el mar de Zihua, la vida es más..." texto="Claro que lo sabes, <b>“Sabrosa”</b>, dentro de nuestro proyecto no dejaremos de la riquisima comida local, es nuestro proximo paso, listar los mejores restaurantes, fondas y bares así como tips para comer como los zancas." liga="Ver <b>las playas</b>" imagen="palma-banner-ixtapa-zihua.png"></BannerInfo>
 </Layout>
 

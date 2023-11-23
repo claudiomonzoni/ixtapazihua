@@ -96,10 +96,8 @@ a {
   padding: .3rem 1rem;
   border-radius: $radio;
   text-transform: capitalize;
-  font-weight: 400;
-  font-size: clamp(.7rem, 1.4vw, 1rem);
   font-weight: 100;
-  font-size: clamp(1.2rem, .8vw, 1.3vw);
+
   
   &:hover{
     background: $acento;
@@ -132,8 +130,8 @@ a {
   width: 150px;
 
   @include cel{
-    top:40vh;
-    right: 5%;
+    top:-12vh;
+    right: 0%;
     width: 130px;
   }
 

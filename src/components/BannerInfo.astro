@@ -5,25 +5,21 @@ export interface props {
   liga: string;
   imagen: string;
 }
+const {encabezado, texto, liga, imagen} = Astro.props
 ---
 
 <section id="banner">
   <div class="ima">
     <img
-      src="palma-banner-ixtapa-zihua.png"
+      src={imagen}
       alt="palma de ixtapa zihuatanejo"
     />
   </div>
   <div class="info">
     <div class="conte">
-      <h2>En el mar, la vida es más...</h2>
-      <p>
-        Claro que lo sabes, <b>“Sabrosa”</b>, dentro de nuestro proyecto no
-        dejaremos de lado la riquisima comida local, es nuestro proximo paso,
-        listar los mejores restaurantes, fondas y bares así como tips para comer
-        como los zancas.
-      </p>
-      <a href="#" class="cta-azul">Ver todas las playas</a>
+      <h2>{encabezado}</h2>
+      <p set:html={texto}></p>
+      <a href="#" class="cta-azul" set:html={liga}></a>
     </div>
   </div>
 </section>
@@ -61,6 +57,23 @@ export interface props {
       .conte {
         width: 80%;
       }
+    }
+    @include cel{
+      flex-wrap: wrap;
+      .ima {
+      min-height: 20vh;
+      img {
+
+        height: 150%;
+      }
+    }
+
+    .info {
+      border: unset;
+      border-top: solid 1px $azul;
+      padding-top: $margen;
+   
+    }
     }
   }
 </style>
