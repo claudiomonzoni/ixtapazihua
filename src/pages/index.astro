@@ -1,28 +1,61 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Riel from '../components/Riel.astro';
-import BannerInfo from '../components/BannerInfo.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Riel from "../components/Riel.astro";
+import BannerInfo from "../components/BannerInfo.astro";
+import { getCollection, getEntry } from "astro:content";
+const lasgatas = await getEntry("playas", "lasgatas");
+const lasplayas = await getCollection("playas", ({data})=>{
+  return !data.draft
+});
 ---
 
-<Layout title="Aquí enpieza tu viaje a Ixtapa Zihuatanejo" descripcion="Tu guia local de playas, comida y mejores lugares para conocer en Ixtapa Zihuatanejo">
+<Layout
+  title="Aquí enpieza tu viaje a Ixtapa Zihuatanejo"
+  descripcion="Tu guia local de playas, comida y mejores lugares para conocer en Ixtapa Zihuatanejo"
+>
+  <Hero
+    titulo="¡Conoce Ixtapa Zihuatanejo!"
+    extracto="Ixtapazihua.com es un <b> proyecto en proceso con el fin de mostrarte Ixtapa y Zihua </b> como si te guiara un local, con el fín de que te muevas como un pez en el agua en tus vacaciones."
+    cta="ver <b>playas</b>"
+    href="video-home.mp4"
+  >
+    <img src="coco.png" alt="coco en ixtapa zihuatanejo" class="decor" />
+  </Hero>
 
-	<Hero titulo="¡Conoce Ixtapa Zihuatanejo!" extracto="Ixtapazihua.com es un <b> proyecto en proceso con el fin de mostrarte Ixtapa y Zihua </b> como si te guiara un local, con el fín de que te muevas como un pez en el agua en tus vacaciones."  cta="ver <b>playas</b>" href="video-home.mp4" >
-	<img src="coco.png" alt="coco en ixtapa zihuatanejo" class="decor">
-	</Hero>
+  <section id="introhome" class="bandeja">
+    <div class="izq">
+      <h2>
+        <img src="icono-agua.svg" alt="icono agua ixtapa zihuatanejo" /> Playas
+      </h2>
 
-	<section id="introhome" class="bandeja">
-		<div class="izq">
-			<h2><img src="icono-agua.svg" alt="icono agua ixtapa zihuatanejo"> Playas</h2>
-			
-			<h2>de Ixtapa Zihuatanejo</h2></div>
+      <h2>de Ixtapa Zihuatanejo</h2>
+    </div>
 
-		<p><b>Ixtapa y Zihuatanejo tienen playas hermosas</b>, muchas de ellas no todos los turistas las conocen y por eso nace este proyecto, para que cuando vengas, no te las pierdas.</p>
-	</section>
+    <p>
+      <b>Ixtapa y Zihuatanejo tienen playas hermosas</b>, muchas de ellas no
+      todos los turistas las conocen y por eso nace este proyecto, para que
+      cuando vengas, no te las pierdas.
+    </p>
+  </section>
 
-	
-	<Riel></Riel>
-	
-	<BannerInfo encabezado="En el mar de Zihua, la vida es más..." texto="Claro que lo sabes, <b>“Sabrosa”</b>, dentro de nuestro proyecto no dejaremos de la riquisima comida local, es nuestro proximo paso, listar los mejores restaurantes, fondas y bares así como tips para comer como los zancas." liga="Ver <b>las playas</b>" imagen="palma-banner-ixtapa-zihua.png"></BannerInfo>
+  <Riel />
+
+  <BannerInfo
+    encabezado="En el mar de Zihua, la vida es más..."
+    texto="Claro que lo sabes, <b>“Sabrosa”</b>, dentro de nuestro proyecto no dejaremos de la riquisima comida local, es nuestro proximo paso, listar los mejores restaurantes, fondas y bares así como tips para comer como los zancas."
+    liga="Ver <b>las playas</b>"
+    imagen="palma-banner-ixtapa-zihua.png"
+  />
+
+  <div class="bandeja">
+    {
+      lasplayas.map(playa => (
+
+		  <h1>{playa.data.titulo}</h1>
+		  <a href={`/playas/${playa.slug}/`}>{playa.data.titulo} </a>
+		)
+		)
+    }
+  </div>
 </Layout>
-

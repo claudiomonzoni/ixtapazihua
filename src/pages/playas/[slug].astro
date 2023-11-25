@@ -1,0 +1,30 @@
+---
+
+import { getCollection } from "astro:content";
+import type {CollectionEntry } from "astro:content";
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+    const lasplayas = await getCollection("playas", ({data}) => {
+        return !data.draft
+    })
+    return lasplayas.map(playa => ({    
+        params:{ slug: playa.slug},
+        props: {playa},
+    }
+    ))  
+}
+// interface Props{
+//     playa: CollectionEntry<"playas">
+// }
+type playa = CollectionEntry<"playas">
+const{playa}=Astro.props;
+const{Content} = await playa.render()
+---
+<Layout title={playa.data.titulo} descripcion={playa.data.descripcion}>
+
+<h1>{playa.data.titulo}</h1>
+<p><span>Fecha:</span>{playa.data.date}</p>
+
+<Content/>
+</Layout>
