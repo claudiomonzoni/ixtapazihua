@@ -1,11 +1,16 @@
 ---
+import {Image} from 'astro:assets'
 export interface props {
   titulo: string;
   extracto: string;
   cta: string;
   href: string;
+  video: boolean;
+  portada: string;
 }
-const { titulo, extracto, cta, href } = Astro.props;
+const { titulo, extracto, cta, href, video, portada } = Astro.props;
+const images = import.meta.glob("../assets/playas/*");
+
 ---
 
 <div id="hero" class="bandeja">
@@ -13,11 +18,17 @@ const { titulo, extracto, cta, href } = Astro.props;
     <h1>{titulo}</h1>
     <!-- para poder renderear tag de html set:html dentro del tag sin agregarrlo en el child-->
     <p set:html={extracto} />
-    <a href="#" class="cta" set:html={cta} />
+    {href ?  <a href="#" class="cta" set:html={cta} /> : "" }
+   
   </div>
   <div class="der">
     <!-- <img src={href} alt={titulo} /> -->
-    <video autoplay loop controls src={href}></video>
+    {video ? <video autoplay loop controls src={href}></video> : <Image src={images[portada]()} alt="" />  }
+
+
+
+   
+    
   </div>
   <!-- slot para agregar desde la fuente cosas extras -->
   <div class="relativo">

@@ -18,7 +18,18 @@ const playas = defineCollection({
         autor: z.enum(['Claudio', 'El Zanca']),
         date: z.date()
     }),
+    
+  });
+
+  const imagenes = defineCollection({
+    schema: ({ image }) => z.object({
+      title: z.string(),
+      cover: image().refine((img) => img.width >= 1080, {
+        message: "Cover image must be at least 1080 pixels wide!",
+      }),
+      Alt: z.string(),
+    }),
   });
   
 //   Aqui puedo hacer otro esquema como playa y agregarlo al array de collections con una coma
-  export const collections = {playas};
+  export const collections = {playas, imagenes};
