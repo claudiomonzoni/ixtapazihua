@@ -1,5 +1,5 @@
 ---
-import {Image} from 'astro:assets'
+import { Image } from "astro:assets";
 export interface props {
   titulo: string;
   extracto: string;
@@ -10,7 +10,6 @@ export interface props {
 }
 const { titulo, extracto, cta, href, video, portada } = Astro.props;
 const images = import.meta.glob("../assets/playas/*");
-
 ---
 
 <div id="hero" class="bandeja">
@@ -18,17 +17,17 @@ const images = import.meta.glob("../assets/playas/*");
     <h1>{titulo}</h1>
     <!-- para poder renderear tag de html set:html dentro del tag sin agregarrlo en el child-->
     <p set:html={extracto} />
-    {href ?  <a href="#" class="cta" set:html={cta} /> : "" }
-   
+    {href ? <a href="#" class="cta" set:html={cta} /> : ""}
   </div>
   <div class="der">
     <!-- <img src={href} alt={titulo} /> -->
-    {video ? <video autoplay loop controls src={href}></video> : <Image src={images[portada]()} alt="" />  }
-
-
-
-   
-    
+    {
+      video ? (
+        <video loop controls src={href} />
+      ) : (
+        <Image src={images[portada]()} alt={titulo} />
+      )
+    }
   </div>
   <!-- slot para agregar desde la fuente cosas extras -->
   <div class="relativo">
@@ -51,13 +50,12 @@ const images = import.meta.glob("../assets/playas/*");
     justify-content: center;
     align-content: center;
     min-height: 70vh;
-    
-    @include cel{
+
+    @include cel {
       min-height: 50vw;
       margin-top: 40vh;
       padding: 0;
     }
-
   }
   h1 {
     color: #fff;
@@ -73,7 +71,7 @@ const images = import.meta.glob("../assets/playas/*");
     a {
       margin: 1rem 0 0 0;
     }
-    @include cel{
+    @include cel {
       flex: 1 0 100%;
       padding: $margen;
       order: 2;
@@ -81,7 +79,7 @@ const images = import.meta.glob("../assets/playas/*");
   }
   .der {
     flex: 1 0 40%;
-    
+
     video {
       width: 32.5vw;
       height: 93vh;
@@ -90,18 +88,18 @@ const images = import.meta.glob("../assets/playas/*");
       top: 0rem;
       border-radius: 0 0 $radio $radio;
     }
-    
-    @include cel{
+
+    @include cel {
       flex: 1 0 100%;
       order: 1;
-      video{
+      video {
         width: 100%;
         height: 60vh;
         object-fit: cover;
-       top: 0;
-       left: 0;
-       z-index: -1;
-   
+        top: 0;
+        left: 0;
+        z-index: -1;
+
         // margin-top: $margen;
       }
     }

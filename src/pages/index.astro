@@ -2,12 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Riel from "../components/Riel.astro";
+import BandejaCards from "../components/BandejaCards.astro";
 import BannerInfo from "../components/BannerInfo.astro";
 import { getCollection, getEntry } from "astro:content";
 const lasgatas = await getEntry("playas", "lasgatas");
-const lasplayas = await getCollection("playas", ({data})=>{
-  return !data.draft
-});
+
 ---
 
 <Layout
@@ -49,14 +48,6 @@ const lasplayas = await getCollection("playas", ({data})=>{
     imagen="palma-banner-ixtapa-zihua.png"
   />
 
-  <div class="bandeja">
-    {
-      lasplayas.map(playa => (
+  <BandejaCards coleccion="playas"></BandejaCards>
 
-		  <h1>{playa.data.titulo}</h1>
-		  <a href={`/playas/${playa.slug}/`}>{playa.data.titulo} </a>
-		)
-		)
-    }
-  </div>
 </Layout>

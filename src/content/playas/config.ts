@@ -5,6 +5,7 @@ const playas = defineCollection({
     schema: z.object({
         titulo: z.string().max(80, "Para un mejor Seo, por favor ingrese un titulo de menos de 80 caracteres"),
         descripcion: z.string().min(100, "Para un mejor Seo, por favor ingrese una descripcion de minimo 100 caracteres"),
+        playadestacada: z.boolean(),
         slug: z.string(),
         image: z.string(),
         tags: z.array(z.string()),

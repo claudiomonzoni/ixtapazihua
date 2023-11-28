@@ -80,6 +80,9 @@
   }
   .bandeja {
     padding: $margen;
+    @include cel{
+      padding: 2rem;
+    }
   }
   .newsletter {
     color: #fff;
@@ -98,6 +101,9 @@
     h3 {
       font-size: clamp(2rem, 2dvw, 2.3rem);
     }
+    @include cel {
+      flex-wrap:wrap;
+    }
   }
   input{
     border: none;
@@ -106,9 +112,11 @@
     border-radius:  $radio 0 0 $radio;
     vertical-align:middle; 
     white-space:0;
+    width: 100%;
   }
   
   input[type="submit"]{
+    width: 40%;
     border: none;
     margin: 0;
     padding: 1rem;

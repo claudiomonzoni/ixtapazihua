@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+
+import Card from "./Card.astro";
+const { coleccion } = Astro.props;
+const lasplayas = await getCollection(`${coleccion}`, ({ data }) => {
+  return !data.playadestacada;
+});
+---
+
+<div class="bandejaCartas bandeja">
+  {
+    lasplayas.map((playa) => (
+      <Card
+        titulo={playa.data.titulo}
+        extracto={playa.data.descripcion}
+        permalink={`/playas/${playa.data.slug}/`}
+        cta={`ver mas`}
+        ima={playa.data.image}
+      />
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @import "../estilos/_variables.scss";
+
+  .bandejaCartas {
+    margin-top: $margen;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+    @include cel {
+      flex-wrap: wrap;
+    }
+  }
+
+</style>

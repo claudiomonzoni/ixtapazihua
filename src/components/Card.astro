@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+const images = import.meta.glob("../assets/playas/*");
+
+export interface Props {
+  titulo: string;
+  extracto: string;
+  permalink: string;
+  cta: string;
+  ima: string;
+}
+
+const { titulo, extracto, permalink, cta, ima } = Astro.props;
+---
+
+<div class="carta">
+  <div class="imagen">
+    <Image src={images[ima]()} alt={titulo} />
+  </div>
+
+  <div class="conte">
+    <div class="bandeja">
+      <img class="icono" src="icono-agua.svg" alt="icono playas" />
+      <h2>{titulo}</h2>
+      <p>{extracto}</p>
+      <a href={permalink} class="cta">{cta}</a>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "../estilos/_variables.scss";
+
+  .carta {
+    background: $fondo;
+    display: flex;
+    border-radius: $radio;
+
+    .imagen {
+      flex: 1 1 50%;
+      position: relative;
+      img {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        border-radius: $radio;
+      }
+    }
+    .conte {
+      flex: 1 0 50%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      color: $azul;
+      padding: $margen 0;
+    }
+    .icono {
+        border-radius: none;
+        max-width: 2rem;
+        height: auto;
+    }
+
+    @include cel{
+    flex-wrap:wrap;
+    .imagen img{
+        aspect-ratio:1/1;
+    }
+    .imagen, .conte{
+        flex:1 0 100%;
+    }
+    }
+  }
+</style>
