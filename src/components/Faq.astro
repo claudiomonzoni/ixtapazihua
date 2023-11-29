@@ -232,8 +232,25 @@ import imagenFaq from "../assets/faq.png";
   }
   ul {
     flex: 1 0 60%;
+    li{
+      .res{
+        display: none;
+        border: solid;
+      }
+    }
   }
   .portadaFaq {
     flex: 1 0 40%;
   }
 </style>
+<script>
+  const pregunta = document.querySelectorAll('#faq ul li')
+  pregunta.forEach(function(e){
+    const resp = e.querySelector<HTMLElement>(".res")
+    e.addEventListener('click', function(e){
+      e.preventDefault();
+      resp.style.display = 'block';
+    })
+  })
+
+</script>
