@@ -5,8 +5,8 @@ import Riel from "../components/Riel.astro";
 import BandejaCards from "../components/BandejaCards.astro";
 import BannerInfo from "../components/BannerInfo.astro";
 import { getCollection, getEntry } from "astro:content";
+import Faq from "../components/Faq.astro";
 const lasgatas = await getEntry("playas", "lasgatas");
-
 ---
 
 <Layout
@@ -18,7 +18,7 @@ const lasgatas = await getEntry("playas", "lasgatas");
     extracto="Ixtapazihua.com es un <b> proyecto en proceso con el fin de mostrarte Ixtapa y Zihua </b> como si te guiara un local, con el fín de que te muevas como un pez en el agua en tus vacaciones."
     cta="ver <b>playas</b>"
     href="video-home.mp4"
-    video=true
+    video="true"
   >
     <img src="coco.png" alt="coco en ixtapa zihuatanejo" class="decor" />
   </Hero>
@@ -48,6 +48,6 @@ const lasgatas = await getEntry("playas", "lasgatas");
     imagen="palma-banner-ixtapa-zihua.png"
   />
 
-  <BandejaCards coleccion="playas"></BandejaCards>
-
+  <BandejaCards coleccion="playas" />
+<Faq></Faq>
 </Layout>
