@@ -4,17 +4,17 @@ import imagenFaq from "../assets/faq.png";
 ---
 
 <article class="bandeja" id="faq">
-    <ul>
-      <div class="cabe">
-        <img
-          src="/icono-FAQ.svg"
-          alt=" preguntas frecuentes de Ixtapa Zihuatanejo"
-        />
-        <h2>Preguntas frecuentes de Ixtapa Zihuatanejo</h2>
-      </div>
+  <ul>
+    <div class="cabe">
+      <img
+        src="/icono-FAQ.svg"
+        alt=" preguntas frecuentes de Ixtapa Zihuatanejo"
+      />
+      <h2>Preguntas frecuentes de Ixtapa Zihuatanejo</h2>
+    </div>
     <li>
       <a href="#">¿Donde esta Ixtapa Zihuatanejo?</a>
-      <div class="res">
+      <div class="res visible">
         <p>
           <b
             >Ixtapa Zihuatanejo esta ubicado en el Mexicano estado de Guerrero
@@ -51,15 +51,16 @@ import imagenFaq from "../assets/faq.png";
             ofrezca servicios hacia Ixtapa Zihuatanejo.
           </li>
           <li>
-            Primera Plus: Esta línea tiene viajes a ciudades del bajío de México
+            <b>Primera Plus:</b> Esta línea tiene viajes a ciudades del bajío de
+            México
           </li>
           <li>
-            La Línea: Principalmente conecta Ixtapa Zihuatanejo con Guadalajara
-            y ciudades de Michoacan
+            <b>La Línea:</b> Principalmente conecta Ixtapa Zihuatanejo con
+            Guadalajara y ciudades de Michoacan
           </li>
           <li>
-            Parhikuni: Autobuses que operan en la región de Michoacan y con
-            varias rutas hacia Ixtapa Zihuatanejo
+            <b>Parhikuni:</b> Autobuses que operan en la región de Michoacan y
+            con varias rutas hacia Ixtapa Zihuatanejo
           </li>
         </ul>
       </div>
@@ -226,32 +227,62 @@ import imagenFaq from "../assets/faq.png";
     border-radius: $radio 0 0 $radio;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
   .cabe {
     flex: 1 0 100%;
   }
+  .visible {
+    display: block !important;
+  }
   ul {
     flex: 1 0 60%;
-    li{
-      .res{
+    padding: $margen;
+
+    li {
+      .res {
         display: none;
-        border: solid;
+        padding: 0.5rem 0;
+        ul {
+          padding: 0rem;
+          li {
+            padding: 0.5rem 0;
+          }
+        }
       }
     }
   }
   .portadaFaq {
     flex: 1 0 40%;
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+    }
   }
 </style>
 <script>
-  const pregunta = document.querySelectorAll('#faq ul li')
-  pregunta.forEach(function(e){
-    const resp = e.querySelector<HTMLElement>(".res")
-    e.addEventListener('click', function(e){
+  const pregunta = document.querySelectorAll("#faq ul li");
+  
+  pregunta.forEach(function (e) {
+    const resp = e.querySelector<HTMLElement>(".res");
+    // resp.classList.remove("visible");
+    e.addEventListener("click", function (e) {
       e.preventDefault();
-      resp.style.display = 'block';
-    })
-  })
+      cerrarRespuesta(resp)
 
+      resp.classList.add("visible");
+    });
+  });
+
+  const cerrarRespuesta = (resp) =>{
+    pregunta.forEach(function(e){
+      const recorrido = e.querySelector<HTMLElement>(".res");
+        if(recorrido != resp){
+          recorrido.classList.remove("visible")  
+        }
+    })
+  }
 </script>
 _
