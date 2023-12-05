@@ -52,6 +52,17 @@ $hdplus:1990px;
     @content;
   }
 }
+// animaciones 
+.anime{
+  transition: all .5s ease-in-out;
+  }
+
+  @keyframes slide-in {
+    0% { max-height:0; }
+    // por si tenemos en auto la altura
+    100% { max-height:200rem; } 
+  }
+
 //extra
 $radio: .8rem;
 $margen: 4rem;

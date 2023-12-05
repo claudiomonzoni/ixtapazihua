@@ -12,7 +12,8 @@ import imagenFaq from "../assets/faq.png";
       />
       <h2>Preguntas frecuentes de Ixtapa Zihuatanejo</h2>
     </div>
-    <li>
+
+    <li class="pre">
       <a href="#">¿Donde esta Ixtapa Zihuatanejo?</a>
       <div class="res visible">
         <p>
@@ -27,11 +28,11 @@ import imagenFaq from "../assets/faq.png";
       </div>
     </li>
 
-    <li>
+    <li class="pre">
       <a href="#">¿Que lineas de autobuses viajan a Ixtapa Zihuatanejo?</a>
       <div class="res">
         <p>
-          Las opciones de transporte en autobús hacia Ixtapa Zihuatanejo pueden
+          <b>Las opciones de transporte en autobús hacia Ixtapa Zihuatanejo</b> pueden
           variar, y las líneas de autobuses pueden cambiar con el tiempo. Hasta
           mi última actualización en enero de 2023, algunas de las líneas de
           autobuses que podrían ofrecer servicios a Ixtapa Zihuatanejo incluyen:
@@ -66,11 +67,11 @@ import imagenFaq from "../assets/faq.png";
       </div>
     </li>
 
-    <li>
+    <li class="pre">
       <a href="#">¿Ixtapa Zihuatanejo tiene aeropuerto?</a>
       <div class="res">
         <p>
-          Sí, Ixtapa Zihuatanejo cuenta con un aeropuerto. Se llama oficialmente
+          <b>Sí, Ixtapa Zihuatanejo cuenta con un aeropuerto.</b> Se llama oficialmente
           "Aeropuerto Internacional de Ixtapa-Zihuatanejo" y tiene el código de
           aeropuerto ZIH. Este aeropuerto sirve a ambas localidades, Ixtapa y
           Zihuatanejo, y está ubicado a unos 20 minutos en coche del centro de
@@ -86,11 +87,11 @@ import imagenFaq from "../assets/faq.png";
       </div>
     </li>
 
-    <li>
+    <li class="pre">
       <a href="#">¿Ixtapa esta lejos de Zihuatanejo?</a>
       <div class="res">
         <p>
-          Ixtapa y Zihuatanejo son dos localidades que se encuentran en la costa
+          <b>Ixtapa y Zihuatanejo son dos localidades</b> que se encuentran en la costa
           del Pacífico mexicano, en el estado de Guerrero. Aunque están
           geográficamente separadas, la distancia entre ellas no es
           considerable. En realidad, Ixtapa y Zihuatanejo están bastante cerca y
@@ -107,7 +108,7 @@ import imagenFaq from "../assets/faq.png";
         </p>
       </div>
     </li>
-    <li>
+    <li class="pre">
       <a href="#">¿Es caro Ixtapa Zihuatanejo?</a>
       <div class="res">
         <p>
@@ -129,11 +130,11 @@ import imagenFaq from "../assets/faq.png";
       </div>
     </li>
 
-    <li>
+    <li class="pre">
       <a href="#">¿Como es el clima en Ixtapa Zihuatanejo?</a>
       <div class="res">
         <p>
-          El clima en Ixtapa Zihuatanejo es típicamente cálido y tropical
+          <b>El clima en Ixtapa Zihuatanejo es típicamente cálido y tropical</b>
           durante la mayor parte del año. Aquí hay una descripción general del
           clima en esta región:
         </p>
@@ -174,7 +175,7 @@ import imagenFaq from "../assets/faq.png";
         </p>
       </div>
     </li>
-    <li>
+    <li class="pre">
       <a href="#"
         >¿Cuales son las fechas de la temporada alta y baja de Ixtapa
         Zihuatanejo?</a
@@ -183,7 +184,7 @@ import imagenFaq from "../assets/faq.png";
         <ul>
           <h3>Temporada Alta:</h3>
           <li>
-            La temporada alta en Ixtapa Zihuatanejo generalmente coincide con
+            <b>La temporada alta en Ixtapa Zihuatanejo generalmente coincide</b> con
             los meses de invierno y primavera, de diciembre a abril.
           </li>
           <li>
@@ -223,27 +224,35 @@ import imagenFaq from "../assets/faq.png";
   @import "../estilos/_variables.scss";
 
   #faq {
+    margin-top: $margen;
     background: $beige;
-    border-radius: $radio 0 0 $radio;
+    border-radius: $radio;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    a{
+      font-weight: bolder;
+      color: $naranja;
+    }
+
   }
   .cabe {
     flex: 1 0 100%;
   }
-  .visible {
-    display: block !important;
-  }
+  
   ul {
     flex: 1 0 60%;
     padding: $margen;
-
+    align-self: center;
     li {
       .res {
-        display: none;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
         padding: 0.5rem 0;
+        @extend .anime;
+        
         ul {
           padding: 0rem;
           li {
@@ -253,36 +262,45 @@ import imagenFaq from "../assets/faq.png";
       }
     }
   }
+  
+  .visible {
+    animation: slide-in 5ms forwards;
+    opacity: 1!important;
+  }
+
   .portadaFaq {
     flex: 1 0 40%;
+    overflow: hidden;
+    padding-bottom: 0rem;
     img {
+      display: block;
       height: 100%;
-      width: auto;
+      width: 100%;
+      border-radius: $radio;
       object-fit: cover;
     }
   }
 </style>
 <script>
-  const pregunta = document.querySelectorAll("#faq ul li");
+  const pregunta = document.querySelectorAll(".pre");
   
   pregunta.forEach(function (e) {
-    const resp = e.querySelector<HTMLElement>(".res");
-    // resp.classList.remove("visible");
+    const resp = e.querySelector(".res");
     e.addEventListener("click", function (e) {
       e.preventDefault();
       cerrarRespuesta(resp)
-
-      resp.classList.add("visible");
     });
   });
-
+  
   const cerrarRespuesta = (resp) =>{
     pregunta.forEach(function(e){
       const recorrido = e.querySelector<HTMLElement>(".res");
         if(recorrido != resp){
           recorrido.classList.remove("visible")  
+        }else{
+          resp.classList.add("visible");
+
         }
     })
   }
 </script>
-_
