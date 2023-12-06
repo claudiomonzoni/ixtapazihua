@@ -13,7 +13,7 @@ const lasplayas = await getCollection(`${coleccion}`, ({ data }) => {
     lasplayas.map((playa) => (
       <Card
         titulo={playa.data.titulo}
-        extracto={playa.data.descripcion}
+        extracto={playa.data.extracto}
         permalink={`/playas/${playa.data.slug}/`}
         cta={`ver mas`}
         ima={playa.data.image}

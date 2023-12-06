@@ -16,8 +16,11 @@ const images = import.meta.glob("../assets/playas/*");
   <div class="izq">
     <h1>{titulo}</h1>
     <!-- para poder renderear tag de html set:html dentro del tag sin agregarrlo en el child-->
-    <p set:html={extracto} />
+    <p class="parrafoH" set:html={extracto} />
     {href ? <a href="#" class="cta" set:html={cta} /> : ""}
+    <div class="relativo">
+      <slot />
+    </div>
   </div>
   <div class="der">
     <!-- <img src={href} alt={titulo} /> -->
@@ -30,9 +33,6 @@ const images = import.meta.glob("../assets/playas/*");
     }
   </div>
   <!-- slot para agregar desde la fuente cosas extras -->
-  <div class="relativo">
-    <slot />
-  </div>
 </div>
 
 <style lang="scss">
@@ -51,9 +51,15 @@ const images = import.meta.glob("../assets/playas/*");
     align-content: center;
     min-height: 70vh;
 
+
     @include cel {
       min-height: 50vw;
       margin-top: 40vh;
+      padding: 0;
+    }
+    @include tableta{
+      min-height: 30vw;
+      margin-top: 0;
       padding: 0;
     }
   }
@@ -61,11 +67,15 @@ const images = import.meta.glob("../assets/playas/*");
     color: #fff;
     margin-bottom: 1rem;
   }
+  .parrafoH{
+    color: $acento;
+    font-size:clamp(1rem, 1.1vw, 3vw)
+  }
   p {
     color: #fff;
   }
   .izq {
-    flex: 1 0 60%;
+    flex: 1 0 55%;
     justify-content: center;
     padding: 0 $margen;
     a {
@@ -76,10 +86,10 @@ const images = import.meta.glob("../assets/playas/*");
       padding: $margen;
       order: 2;
     }
+    
   }
   .der {
-    flex: 1 0 40%;
-
+    flex: 1 0 45%;
     video {
       width: 32.5vw;
       height: 93vh;
@@ -87,6 +97,15 @@ const images = import.meta.glob("../assets/playas/*");
       position: absolute;
       top: 0rem;
       border-radius: 0 0 $radio $radio;
+    }
+    img{
+      width: 39vw;
+      height: 90vh;
+      object-fit: cover;
+      position: absolute;
+      border-radius: 0 0 $radio $radio;
+      top: 0rem;
+
     }
 
     @include cel {
@@ -99,8 +118,32 @@ const images = import.meta.glob("../assets/playas/*");
         top: 0;
         left: 0;
         z-index: -1;
-
         // margin-top: $margen;
+      }
+      img{
+        width: 100%;
+        height: 60vh;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
+    @include tableta_land{
+      img{
+        width: 36vw;
+      }
+    }
+
+    @include tableta{
+      img{
+        width: 36vw;
+        height: 40vh;
+      }
+    }
+    @include hdplus{
+      img{
+        width: 30vw;
       }
     }
   }

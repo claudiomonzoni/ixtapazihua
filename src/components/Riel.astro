@@ -23,7 +23,7 @@ const destacadas = await getCollection("playas", ({ data }) => {
             <img src="icono-localizcion.svg" alt="simbolo de la playa" />
             <div class="conte">
               <h2>{destacada.data.titulo}</h2>
-              <p>{destacada.data.descripcion}</p>
+              <p>{destacada.data.extracto}</p>
               <a href={`/playas/${destacada.data.slug}/`} class="cta">
                 {destacada.data.titulo}
               </a>
