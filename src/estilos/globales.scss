@@ -7,7 +7,7 @@ html {
   box-sizing: border-box;
   font-size: clamp(12px, 1.4vw, 22px);
   @include cel {
-    font-size: clamp(16px, 1.5vw, 24px);
+    font-size: clamp(16px, 13.4vw, 24px);
   }
   color: $gris;
   font-family: "Poppins", sans-serif;
@@ -58,9 +58,9 @@ h1 {
   font-size: clamp(2em, 4vw, 30vw);
 }
 h2 {
-  font-size: clamp(1.5em, 2vw, 20vw);
+  font-size: clamp(13.4em, 2vw, 20vw);
   @include hd{
-    font-size: clamp(1.5em, 2.3vw, 50vw);
+    font-size: clamp(13.4em, 2.3vw, 50vw);
   }
 }
 
@@ -92,7 +92,7 @@ a {
 @mixin cta($azulc){
   background: $naranja;
   color: #fff;
-  margin: 1.5rem 0 0;
+  margin: 13.4rem 0 0;
   padding: .3rem 1rem;
   border-radius: $radio;
   text-transform: capitalize;
@@ -143,4 +143,32 @@ a {
   }
 
 
+}
+
+// grid 
+.grid{
+  display: grid;
+  grid-template-columns: [pantalla-start] 3.7vw [extra-start] 3.7vw [contenido-start] 1fr [contenido-end] 3.7vw [extra-end] 3.7vw [pantalla-end];
+  @include hd{
+    grid-template-columns: [pantalla-start] 1.5vw [extra-start] 1.5vw [contenido-start] 1fr [contenido-end] 1.5vw [extra-end] 1.5vw [pantalla-end];
+  }
+  @include hdplus{
+    grid-template-columns: [pantalla-start] 3.4vw [extra-start] 3.4vw [contenido-start] 1fr [contenido-end] 3.4vw [extra-end] 3.4vw [pantalla-end];
+  }
+}
+.contenido > *{
+  grid-column: contenido;
+}
+.extra > *{
+  grid-column: extra;
+}
+.pantalla > *{
+  grid-column: pantalla;
+}
+.pantalla-izq > *{
+  border: solid;
+  grid-column: pantalla-start / contenido-end;
+}
+.pantalla-der > *{
+  border: solid;  grid-column: contenido-start / pantalla-end;
 }
