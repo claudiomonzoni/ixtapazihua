@@ -83,7 +83,12 @@ a {
     transform: scale(1.1);
   }
 }
-
+p{
+  margin-bottom: 1rem;
+}
+p:last-child{
+  margin-bottom: 0rem;
+}
 .selected{
     color: $naranja;
     transform: scale(1.1);
@@ -171,4 +176,32 @@ a {
 }
 .pantalla-der > *{
   border: solid;  grid-column: contenido-start / pantalla-end;
+}
+
+// playas
+
+.intro-playa{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $margen;
+  padding: $margen $margen-top;
+  img{
+    width: 20vw;
+    
+  }
+  div{
+    margin:0 $margen;
+    columns: 2;
+  }
+  @include cel{
+    flex-wrap: wrap;
+    img{
+      margin-bottom: 2rem;
+    }
+    div{
+      margin:0;
+      columns: 1  ;
+    }
+  }
 }

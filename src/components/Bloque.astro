@@ -1,5 +1,6 @@
 ---
+const {clase} = Astro.props
 ---
-<div class="grid pantalla-izq">
+<div class=`grid contenido ${clase}`>
     <slot />
 </div>
