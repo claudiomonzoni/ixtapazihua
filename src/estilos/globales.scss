@@ -89,6 +89,10 @@ p{
 p:last-child{
   margin-bottom: 0rem;
 }
+b{
+  color: #0008D0;
+  font-weight: bold;
+}
 .selected{
     color: $naranja;
     transform: scale(1.1);
