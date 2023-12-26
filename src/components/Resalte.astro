@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+export interface props{
+    encabezado: string;
+    media:string;
+}
+const {encabezado, media} =Astro.props;
+const images = import.meta.glob("../assets/playas/*");
+
+---
+<div id="resalte">
+<Image src={images[media]()} alt={encabezado} />
+<div class="der">
+    <div class="conte">
+
+        <h2>{encabezado}</h2>
+        <p>
+            <slot/>
+        </p>
+    </div>
+</div>
+</div>
+<style lang="scss">
+    @import '../estilos/_variables.scss';
+    #resalte{
+
+        border: solid;
+        display: flex;
+        background: $naranja;
+        color: $beige;
+        border-radius: $radio;
+        margin-top: $margen-top;
+        img, .der{
+            flex: 1;
+        }
+        .der{
+            display: inherit;
+            justify-content: center;
+            align-items: center;
+        }
+        .conte{
+            width: 80%;
+            padding: $margen $margen-cel;
+        }
+        @include cel{
+            margin-top:0;
+            flex-wrap: wrap;
+        }
+    }
+</style>

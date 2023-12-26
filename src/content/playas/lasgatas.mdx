@@ -11,7 +11,7 @@ nado: true
 comer: true
 hospedaje: true
 atascada: true
-lat: 17.630540
+lat: 17.622420
 lang: -101.543395
 autor: El Zanca
 date: 2023-11-24
@@ -19,6 +19,10 @@ date: 2023-11-24
 ---
 import Bloque from '../../components/Bloque.astro'
 import RecuadroZig from '../../components/RecuadroZig.astro'
+import Resalte from '../../components/Resalte.astro'
+import Cartaiconos from '../../components/Cartaiconos.astro'
+import Mapa from '../../components/Mapa.astro'
+
 
 <Bloque clase="intro-playa">
 
@@ -34,6 +38,42 @@ Playa Las Gatas cuenta con un rompe olas que más adelante te contaré la histor
 
 </ Bloque>
 
-<Bloque clase='grid contenido'> 
+<Bloque clase='grid contenido zigzag'> 
 <RecuadroZig  media="../assets/playas/isla-de-ixtapa.jpg" titulo="Sin Olas" descripcion="<b>Famosa por ser ideal para nadar</b> gracias a su antiguo rompeolas hecho por un antiguo rey prehispanico" iconoUrl = "/icono-camara.svg"> </RecuadroZig>
+<RecuadroZig  media="../assets/playas/playa-las-gatas.jpg" titulo="Ideal para nadar" descripcion="Echale un breve vistazo con el video" iconoUrl = "/icono-video.svg"> </RecuadroZig>
+</Bloque>
+
+
+<Bloque clase='grid pantalla-izq fondo-50'> 
+<Resalte encabezado="La historia del rompeolas" media='../assets/playas/isla-de-ixtapa.jpg'>
+Cuenta la leyenda, que el **rey indigena Tarasco llamado Caltzontzin quedo maravillado con la bahía Zihuatanejo** y su playa favorita es donde actualmente esta Playa Las Gatas, queria que fuera perfecta y mando a construir un rompe olas de piedras para que no llegaran las olas.
+
+Al día de hoy Playa Las Gatas es de las mas populares por los turistas gracias a sus aguas tranquilas.
+</Resalte>
+</Bloque>
+
+
+<Bloque clase="grid pantalla fondo-fondo">
+<Bloque clase="grid contenido">
+<Bloque clase="cartasiconos">
+
+<h2>Resumen de Playa Las Gatas</h2>
+
+<Cartaiconos icono="/icono-corazon-fav.svg" encabezado="ideal para nadar" />
+<Cartaiconos icono="/icono-corazon-fav.svg" encabezado="ideal para nadar" />
+<Cartaiconos icono="/icono-corazon-fav.svg" encabezado="ideal para nadar" />
+<Cartaiconos icono="/icono-corazon-fav.svg" encabezado="ideal para nadar" />
+
+</Bloque>
+</Bloque>
+</Bloque>
+
+<Bloque>
+<Mapa lat="17.622420" lang="-101.546180" encabezadotip="Tip:" >
+Si llegas en lancha, pregunta la hora de regreso de la ultima lancha, usualmente es entre 5 y 6 pm.
+
+No lleves hieleras unicel, estan prohibidas.
+
+En temporada alta puede llenarse de gente asi que es buena idea llegar temprano.
+</Mapa> 
 </Bloque>

@@ -1,67 +1,84 @@
 ---
-export interface props  {
-video: boolean;
-media: string;
-titulo: string;
-iconoUrl: string;
-descripcion: string;
-ctaUrl: string;
-cta: string;
+export interface props {
+  video: boolean;
+  media: string;
+  titulo: string;
+  iconoUrl: string;
+  descripcion: string;
+  ctaUrl: string;
+  cta: string;
 }
-const {video, media, titulo, iconoUrl, descripcion, ctaUrl, cta} = Astro.props
+const { video, media, titulo, iconoUrl, descripcion, ctaUrl, cta } =
+  Astro.props;
 import { Image } from "astro:assets";
 const images = import.meta.glob("../assets/playas/*");
 ---
 
 <div class="recuadrozig">
-
-    {
-        video ? (
-          <video loop controls src={media} />
-        ) : (
-          <Image src={images[media]()} alt={titulo} />
-        )
-      }
-    <div class="carta">
-        <img src={iconoUrl} alt={titulo}>
-        <h3>{titulo}</h3>
-    </div>
-    <p set:html={descripcion}></p>
+  {
+    video ? (
+      <video loop controls src={media} />
+    ) : (
+      <Image src={images[media]()} alt={titulo} />
+    )
+  }
+  <div class="carta">
+    <img src={iconoUrl} alt={titulo} />
+    <h3>{titulo}</h3>
+  </div>
+  <p set:html={descripcion} />
 </div>
 
 <style lang="scss">
-    @import "../estilos/_variables.scss";
+  @import "../estilos/_variables.scss";
 
-    .recuadrozig{ 
-        display: grid;
-        grid-template-columns: 1fr 10% 10% 1fr;
-        grid-template-rows: 1fr;
-        place-items: center;
-        img{
-            width: 100%;
-            object-fit: cover;
-            grid-column: 1/ span 2;
-            grid-row: 1;
-        }
-        .carta{
-            grid-column: 2 / span 2;
-            grid-row: 1;
-            background: $azul;
-            border-radius: $radio;
-            color: #fff;
-            padding: $margen-cel;
-            h3{
-                font-size: clamp(2rem, 2vw, 3rem);
-            }
-            img{
-                max-width: 40px;
-            }
-        }
-        p{
-            grid-column: 4 / span 1;
-            grid-row: 1;
-            padding: $margen;
-        }
+  .recuadrozig {
+    display: grid;
+    grid-template-columns: 1fr 5% 5% 5% 5% 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+    img {
+      width: 100%;
+      object-fit: cover;
+      grid-column: 1 / span 4;
+      grid-row: 1;
+    }
+    .carta {
+      width: 100%;
+      grid-column: 3 / span 3;
+      grid-row: 1;
+      background: $azul;
+      border-radius: $radio;
+      color: #fff;
+      padding: $margen-cel;
+      h3 {
+        font-size: clamp(2rem, 2vw, 3rem);
+      }
+      img {
+        max-width: 40px;
+      }
+    }
+    p {
+      grid-column: 6 / -1;
+      grid-row: 1;
+      padding: $margen;
     }
 
+    @include cel {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      .carta {
+        position: absolute;
+        width: 80%;
+        text-align: center;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -60%)
+      }
+      p {
+        margin-top: $margen-top;
+      }
+    }
+  }
 </style>

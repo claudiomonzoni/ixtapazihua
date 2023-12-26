@@ -20,7 +20,7 @@ html {
   //     #fff 50%,
   //     $beige 100%
   //   )
-    // no-repeat;
+  // no-repeat;
   scroll-behavior: smooth;
 }
 
@@ -48,10 +48,11 @@ ul {
 }
 
 h1,
-h2, h3 {
+h2,
+h3 {
   line-height: 1em;
   font-family: "DM Serif Display", serif;
-  padding-bottom: .7rem;
+  padding-bottom: 0.7rem;
 }
 h1 {
   color: $azul;
@@ -59,11 +60,10 @@ h1 {
 }
 h2 {
   font-size: clamp(2.5em, 2vw, 30vw);
-  @include hd{
+  @include hd {
     font-size: clamp(3em, 2vw, 50vw);
   }
 }
-
 
 ol,
 ul {
@@ -78,134 +78,173 @@ a {
   text-decoration: none;
   display: inline-block;
   @extend .anime;
-  &:hover{
+  &:hover {
     color: $naranja;
     transform: scale(1.1);
   }
 }
-p{
+p {
   margin-bottom: 1rem;
 }
-p:last-child{
+p:last-child {
   margin-bottom: 0rem;
 }
-b{
-  color: #0008D0;
+b {
+  color: #0008d0;
   font-weight: bold;
 }
-.selected{
-    color: $naranja;
-    transform: scale(1.1);
-
+.selected {
+  color: $naranja;
+  transform: scale(1.1);
 }
-@mixin cta($azulc){
+@mixin cta($azulc) {
   background: $naranja;
   color: #fff;
   margin: 1rem 0 0;
-  padding: .3rem 1rem;
+  padding: 0.3rem 1rem;
   border-radius: $radio;
   text-transform: capitalize;
   font-weight: 100;
 
-  
-  &:hover{
+  &:hover {
     background: $acento;
-    color: $azul;  
+    color: $azul;
   }
-  
+
   @if $azulc {
     background: $fondo;
     color: $azul;
-    &:hover{
+    &:hover {
       background: $azul;
-      color: $fondo;  
+      color: $fondo;
     }
-    
   }
-  
 }
-.cta{
-@include cta($azulc : false);
+.cta {
+  @include cta($azulc: false);
 }
-.cta-azul{
-@include cta($azulc : true);
+.cta-azul {
+  @include cta($azulc: true);
 }
 
 // decoracion en el comp de Hero (coco flotando o culaquier imagen que se inyecte en el slot
-.decor{
+.decor {
   position: absolute;
-  top:5vw;
+  top: 5vw;
   left: 45%;
   width: 150px;
 
-  @include cel{
-    top:0vh;
+  @include cel {
+    top: 0vh;
     right: 0%;
     width: 130px;
   }
 
-  @include hd{
+  @include hd {
     width: 220px;
   }
-  @include hdplus{
+  @include hdplus {
     width: 300px;
   }
-
-
 }
 
-// grid 
-.grid{
+// grid
+.grid {
   display: grid;
   grid-template-columns: [pantalla-start] 3.7vw [extra-start] 3.7vw [contenido-start] 1fr [contenido-end] 3.7vw [extra-end] 3.7vw [pantalla-end];
-  @include hd{
+  @include hd {
     grid-template-columns: [pantalla-start] 1.5vw [extra-start] 1.5vw [contenido-start] 1fr [contenido-end] 1.5vw [extra-end] 1.5vw [pantalla-end];
   }
-  @include hdplus{
+  @include hdplus {
     grid-template-columns: [pantalla-start] 3.4vw [extra-start] 3.4vw [contenido-start] 1fr [contenido-end] 3.4vw [extra-end] 3.4vw [pantalla-end];
   }
 }
-.contenido > *{
+.contenido > * {
   grid-column: contenido;
 }
-.extra > *{
+.extra > * {
   grid-column: extra;
 }
-.pantalla > *{
+.pantalla > * {
   grid-column: pantalla;
 }
-.pantalla-izq > *{
+.pantalla-izq > * {
   border: solid;
   grid-column: pantalla-start / contenido-end;
+  @include cel{
+    grid-column: contenido-start /contenido-end;
+  }
 }
-.pantalla-der > *{
-  border: solid;  grid-column: contenido-start / pantalla-end;
+.pantalla-der > * {
+  border: solid;
+  grid-column: contenido-start / pantalla-end;
+  @include cel{
+    grid-column: contenido-start /contenido-end;
+  }
 }
 
+.zigzag {
+  .recuadrozig:nth-child(even) {
+    img {
+      grid-column: 3 / -1!important;
+    }
+    .carta{
+      grid-column: 2 / span 3!important;
+  }
+
+    p {
+      grid-column: 1 / span 1!important;
+    }
+  }
+}
+.cartasiconos{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-top: $margen;
+  padding-bottom: $margen;
+  h2{
+    flex: 1 0 100%;
+    text-align: center;
+    color: $naranja;
+  }
+  @include cel{
+  }
+}
+
+.fondo-fondo{
+  background: $fondo;
+}
+.fondo-50{
+  background: $beige;
+background: linear-gradient(0deg, $fondo 0%, $fondo 50%, #fff 50%);
+}
 // playas
 
-.intro-playa{
+
+
+.intro-playa {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: $margen;
-  padding: $margen $margen-top;
-  img{
+  padding: $margen $margen;
+  img {
     width: 20vw;
-    
   }
-  div{
-    margin:0 $margen;
+  div {
+    margin: 0 $margen;
     columns: 2;
   }
-  @include cel{
+  @include cel {
     flex-wrap: wrap;
-    img{
+    img {
       margin-bottom: 2rem;
     }
-    div{
-      margin:0;
-      columns: 1  ;
+    div {
+      margin: 0;
+      columns: 1;
     }
   }
 }

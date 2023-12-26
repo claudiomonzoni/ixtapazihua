@@ -1,0 +1,25 @@
+---
+export interface props {
+    icono: string;
+    encabezado: string;
+}
+const {icono, encabezado} =Astro.props;
+---
+<div class="carta-iconos">
+    <img src={icono} alt={encabezado}>
+    <h3>{encabezado}</h3>
+</div>
+
+<style lang="scss">
+    @import "../estilos/_variables.scss";
+
+    .carta-iconos{
+        flex: 1;
+        background: #fff;
+        border-radius: $radio;
+        text-align: center;
+        padding: 1rem;
+        margin: $margen-cel;
+        max-width: 15rem;
+    }
+</style>
