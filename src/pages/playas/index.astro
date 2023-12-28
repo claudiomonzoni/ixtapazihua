@@ -1,8 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import BandejaCards from "../../components/BandejaCards.astro";
+import BandejaCardsInt from "../../components/BandejaCardsInt.astro";
 ---
 <Layout title="Playas de Ixtapa Zihuatanejo" descripcion="Conoce las playas de Ixtapa Zihuatanejo, te presentamos un listado de las mejores">
-    <h1>Playas de Ixtapa Zihuatanejo</h1>
-    <p>Conoce la gran variedad de playas del destino, desde playas kilométricas virgenes hasta pequeñas albercas naturales con todos los servicios para el turista.</p>
+    <Hero titulo="Playas de Ixtapa Zihuatanejo" extracto="Conoce la gran variedad de playas del destino, desde playas kilométricas virgenes hasta pequeñas albercas naturales con todos los servicios para el turista." portada="../assets/playas/playa-las-gatas.jpg" ></Hero>
+
+    <BandejaCardsInt coleccion="playas" />
 
 </Layout>
