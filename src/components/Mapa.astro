@@ -1,43 +1,87 @@
 ---
 export interface props {
-    lat:number;
-    lang:number;
-    encabezadotip:string;
-    textotip:string;
+  lat: number;
+  lang: number;
+  encabezadotip: string;
+  textotip: string;
 }
-const {lat, lang, encabezadotip, textotip} =Astro.props;
+const { lat, lang, encabezadotip, textotip } = Astro.props;
 // import L from "leaflet";
-
 ---
-<div id="mapa">
 
+<div id="ubicacion">
+  <div id="mapa"></div>
+  <div id="tip">
+    <div class="conte">
+      <h2>{encabezadotip}</h2>
+      <p>
+        <slot />
+      </p>
+    </div>
+  </div>
 </div>
 
 <style lang="scss">
-    @import '../estilos/_variables.scss';
+  @import "../estilos/_variables.scss";
 
-    #mapa{
-        height: 20rem;
+  #ubicacion {
+    display: flex;
+    @include cel{
+        flex-wrap: wrap;
     }
+  }
 
+  #mapa {
+    height: 50dvh;
+    flex: 1;
+}
+#tip {
+    flex: 1;
+    background: $azul;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    .conte{
+        width: 70%;
+        padding: $margen $margen-cel;
+    }
+}
+h2 {
+    color: $acento;
+}
+@include cel{
+    #mapa{
+        
+        flex: 1 1 100%;
+        border-radius:0 0 $radio $radio;
+    }
+    #tip{
+        flex: 1 1 100%;
+        margin-top: -2rem;
+    }
+  }
 </style>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-crossorigin=""/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin=""
+/>
 
 <script src="/leaflet.js" is:inline></script>
 
-<script define:vars={{lat, lang }}>
-var map = L.map('mapa').setView([lat, lang], 15);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+<script define:vars={{ lat, lang }}>
+  var map = L.map("mapa").setView([lat, lang], 15);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-var circle = L.circle([lat, lang], {
-    color: 'red',
-    fillColor: '#E76128',
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(map);
+  var circle = L.circle([lat, lang], {
+    color: "red",
+    fillColor: "#E76128",
     fillOpacity: 0.5,
-    radius: 100
-}).addTo(map);
+    radius: 100,
+  }).addTo(map);
 </script>
