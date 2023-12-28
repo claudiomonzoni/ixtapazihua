@@ -4,11 +4,12 @@ export interface props {
   titulo: string;
   extracto: string;
   cta: string;
+  ligaCta: string;
   href: string;
   video: boolean;
   portada: string;
 }
-const { titulo, extracto, cta, href, video, portada } = Astro.props;
+const { titulo, extracto, cta, href, video, portada, ligaCta } = Astro.props;
 const images = import.meta.glob("../assets/playas/*");
 ---
 <div id="hero" class="bandeja">
@@ -16,7 +17,7 @@ const images = import.meta.glob("../assets/playas/*");
     <h1>{titulo}</h1>
     <!-- para poder renderear tag de html set:html dentro del tag sin agregarrlo en el child-->
     <p class="parrafoH" set:html={extracto} />
-    {href ? <a href="#" class="cta" set:html={cta} /> : ""}
+    {href ? <a href={ligaCta} class="cta" set:html={cta} /> : ""}
     <div class="relativo">
       <slot />
     </div>

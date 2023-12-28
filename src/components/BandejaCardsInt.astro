@@ -28,10 +28,10 @@ const lasplayas = await getCollection(`${coleccion}`, ({ data }) => {
   .bandejaCartas {
     margin-top: $margen;
     display: grid;
-    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     gap: 1rem;
     @include cel {
-      flex-wrap: wrap;
+  display: block;
     }
   }
 
