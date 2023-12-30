@@ -12,6 +12,7 @@ export interface props {
 const { titulo, extracto, cta, href, video, portada, ligaCta } = Astro.props;
 const images = import.meta.glob("../assets/playas/*");
 ---
+
 <div id="hero" class="bandeja">
   <div class="izq">
     <h1>{titulo}</h1>
@@ -26,7 +27,22 @@ const images = import.meta.glob("../assets/playas/*");
     <!-- <img src={href} alt={titulo} /> -->
     {
       video ? (
-        <video loop controls src={href} />
+        <>
+          <video id="video" loop autoplay src={href} />
+
+          <a href="#" id="btn-video">
+            <img
+              id="play"
+              src="./play-icon.svg"
+              alt="reproducción de video de ixtapa zihuatanejo"
+            />
+            <img
+              id="pausa"
+              src="./pausa.svg"
+              alt="pausa de video de ixtapa zihuatanejo"
+            />
+          </a>
+        </>
       ) : (
         <Image src={images[portada]()} alt={titulo} />
       )
@@ -50,14 +66,14 @@ const images = import.meta.glob("../assets/playas/*");
     justify-content: center;
     align-content: center;
     min-height: 70vh;
-
+    border-radius: $radio;
 
     @include cel {
       min-height: 50vw;
       margin-top: 40vh;
       padding: 0;
     }
-    @include tableta{
+    @include tableta {
       min-height: 30vw;
       margin-top: 0;
       padding: 0;
@@ -67,9 +83,9 @@ const images = import.meta.glob("../assets/playas/*");
     color: #fff;
     margin-bottom: 1rem;
   }
-  .parrafoH{
+  .parrafoH {
     color: $acento;
-    font-size:clamp(1rem, 1.1vw, 3vw)
+    font-size: clamp(1rem, 1.1vw, 3vw);
   }
   p {
     color: #fff;
@@ -86,7 +102,6 @@ const images = import.meta.glob("../assets/playas/*");
       padding: $margen;
       order: 2;
     }
-    
   }
   .der {
     flex: 1 0 45%;
@@ -98,14 +113,13 @@ const images = import.meta.glob("../assets/playas/*");
       top: 0rem;
       border-radius: 0 0 $radio $radio;
     }
-    img{
+    img {
       width: 39vw;
       height: 90vh;
       object-fit: cover;
       position: absolute;
       border-radius: 0 0 $radio $radio;
       top: 0rem;
-
     }
 
     @include cel {
@@ -120,7 +134,7 @@ const images = import.meta.glob("../assets/playas/*");
         z-index: -1;
         // margin-top: $margen;
       }
-      img{
+      img {
         width: 100%;
         height: 60vh;
         object-fit: cover;
@@ -129,22 +143,65 @@ const images = import.meta.glob("../assets/playas/*");
         z-index: -1;
       }
     }
-    @include tableta_land{
-      img{
+    @include tableta_land {
+      img {
         width: 36vw;
       }
     }
 
-    @include tableta{
-      img{
+    @include tableta {
+      img {
         width: 36vw;
         height: 40vh;
       }
     }
-    @include hdplus{
-      img{
+    @include hdplus {
+      img {
         width: 30vw;
+      }
+    }
+    #btn-video {
+      display: none;
+      position: absolute;
+      top: 25dvh;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4rem;
+      mix-blend-mode: overlay;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      #pausa {
+        display: none;
+        width: 80%;
+        opacity: .5;
+      }
+      @include cel {
+        display: block;
       }
     }
   }
 </style>
+
+<script>
+  const btnvideo = document.getElementById("btn-video");
+  const video  = document.getElementById("video") as HTMLMediaElement;
+  const pausa = document.getElementById("pausa");
+  const play = document.getElementById("play");
+  let clic = false;
+  btnvideo.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (!clic) {
+      video.play();
+      play.style.display = "none";
+      pausa.style.display = "block";
+      clic = true;
+    } else {
+      video.pause();
+      play.style.display = "block";
+      pausa.style.display = "none";
+      clic = false;
+    }
+  });
+</script>
