@@ -10,7 +10,7 @@ export interface props {
   portada: string;
 }
 const { titulo, extracto, cta, href, video, portada, ligaCta } = Astro.props;
-const images = import.meta.glob("../assets/playas/*");
+const images = import.meta.glob("../assets/**/*");
 ---
 
 <div id="hero" class="bandeja">

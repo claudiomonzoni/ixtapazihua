@@ -5,7 +5,7 @@ export interface props{
     media:string;
 }
 const {encabezado, media} =Astro.props;
-const images = import.meta.glob("../assets/playas/*");
+const images = import.meta.glob("../assets/**/*");
 
 ---
 <div id="resalte">
@@ -31,7 +31,9 @@ const images = import.meta.glob("../assets/playas/*");
         border-radius: $radio;
         margin-top: $margen-top;
         img, .der{
-            flex: 1;
+            flex: 1 0 auto;
+            max-width: 50%;
+            object-fit: cover;
         }
         .der{
             display: inherit;
@@ -45,6 +47,10 @@ const images = import.meta.glob("../assets/playas/*");
         @include cel{
             margin-top:0;
             flex-wrap: wrap;
+            img, .der{
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
         }
     }
 </style>

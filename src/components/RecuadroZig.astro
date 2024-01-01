@@ -11,17 +11,19 @@ export interface props {
 const { video, media, titulo, iconoUrl, descripcion, ctaUrl, cta } =
   Astro.props;
 import { Image } from "astro:assets";
-const images = import.meta.glob("../assets/playas/*");
+const images = import.meta.glob("../assets/**/*");
 ---
 
 <div class="recuadrozig">
-  {
-    video ? (
-      <video loop controls src={media} />
-    ) : (
-      <Image src={images[media]()} alt={titulo} />
-    )
-  }
+  <div class="ima">
+    {
+      video ? (
+        <video loop controls src={media} />
+      ) : (
+        <Image src={images[media]()} alt={titulo} />
+      )
+    }
+  </div>
   <div class="carta">
     <img src={iconoUrl} alt={titulo} />
     <h3>{titulo}</h3>
@@ -32,12 +34,14 @@ const images = import.meta.glob("../assets/playas/*");
 <style lang="scss">
   @import "../estilos/_variables.scss";
 
+  // en css global hago el zigzag con la clase .zigzag
+
   .recuadrozig {
     display: grid;
     grid-template-columns: 1fr 5% 5% 5% 5% 1fr;
     grid-template-rows: 1fr;
     place-items: center;
-    img {
+    .ima {
       width: 100%;
       object-fit: cover;
       grid-column: 1 / span 4;
@@ -68,16 +72,19 @@ const images = import.meta.glob("../assets/playas/*");
       display: flex;
       flex-wrap: wrap;
       position: relative;
+      margin-top: $margen;
       .carta {
         position: absolute;
         width: 80%;
         text-align: center;
-        top:50%;
-        left:50%;
-        transform: translate(-50%, -60%)
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -60%);
       }
-      p {
-        margin-top: $margen-top;
+      .ima {
+        img {
+          height: 50dvh;
+        }
       }
     }
   }

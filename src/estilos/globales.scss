@@ -73,6 +73,10 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-size: cover;
+  shape-margin: .75rem;
 }
 a {
   text-decoration: none;
@@ -185,7 +189,7 @@ b {
 
 .zigzag {
   .recuadrozig:nth-child(even) {
-    img {
+    .ima {
       grid-column: 3 / -1!important;
     }
     .carta{
@@ -231,7 +235,7 @@ background: linear-gradient(0deg, $fondo 0%, $fondo 50%, #fff 50%);
   margin-top: $margen;
   padding: $margen $margen;
   img {
-    width: 20vw;
+    height: 20vw;
   }
   div {
     margin: 0 $margen;
