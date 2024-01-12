@@ -14,13 +14,17 @@ const {icono, encabezado} =Astro.props;
     @import "../estilos/_variables.scss";
 
     .carta-iconos{
-        flex: 1;
+        flex: 1 0 auto;
         background: #fff;
         border-radius: $radio;
         text-align: center;
         padding: 1rem;
         margin: $margen-cel;
         max-width: 15rem;
+        @include cel{
+            flex: 1 0 50%;
+            margin:0;
+        }
     }
     img{
         width: 4rem;

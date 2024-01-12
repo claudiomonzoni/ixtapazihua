@@ -5,7 +5,11 @@
 
 html {
   box-sizing: border-box;
-  font-size: clamp(12px, 1.4vw, 22px);
+  font-size: clamp(10px, .9vw, 22px);
+  @include hd{
+    font-size: clamp(10px, .9vw, 20px);
+
+  }
   @include cel {
     font-size: clamp(16px, 2vw, 18px);
   }
@@ -76,7 +80,7 @@ img {
   vertical-align: middle;
   font-style: italic;
   background-size: cover;
-  shape-margin: .75rem;
+  shape-margin: 0.75rem;
 }
 a {
   text-decoration: none;
@@ -94,7 +98,6 @@ p:last-child {
   margin-bottom: 0rem;
 }
 b {
-  
   font-weight: bold;
 }
 .selected {
@@ -173,60 +176,65 @@ b {
   grid-column: pantalla;
 }
 .pantalla-izq > * {
-  border: solid;
   grid-column: pantalla-start / contenido-end;
-  @include cel{
-    grid-column: contenido-start /contenido-end;
+  @include cel {
+    grid-column: contenido-start / contenido-end;
   }
 }
 .pantalla-der > * {
-  border: solid;
   grid-column: contenido-start / pantalla-end;
-  @include cel{
-    grid-column: contenido-start /contenido-end;
+  @include cel {
+    grid-column: contenido-start / contenido-end;
+  }
+}
+.bandeja {
+  width: min(100% - 5rem, 90vw);
+  margin-inline: auto;
+
+
+  @include hdplus{
+    width: min(100% - 5rem, 100vw);
   }
 }
 
 .zigzag {
   .recuadrozig:nth-child(even) {
     .ima {
-      grid-column: 3 / -1!important;
+      grid-column: 3 / -1 !important;
     }
-    .carta{
-      grid-column: 2 / span 3!important;
-  }
+    .carta {
+      grid-column: 2 / span 3 !important;
+    }
 
     p {
-      grid-column: 1 / span 1!important;
+      grid-column: 1 / span 1 !important;
     }
   }
 }
-.cartasiconos{
+.cartasiconos {
   display: flex;
   gap: 1rem;
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding-top: $margen;
   padding-bottom: $margen;
-  h2{
+  h2 {
     flex: 1 0 100%;
     text-align: center;
     color: $naranja;
   }
-  @include cel{
+  @include cel {
   }
 }
 
-.fondo-fondo{
+.fondo-fondo {
   background: $fondo;
 }
-.fondo-50{
+.fondo-50 {
   background: $beige;
-background: linear-gradient(0deg, $fondo 0%, $fondo 50%, #fff 50%);
+  background: linear-gradient(0deg, $fondo 0%, $fondo 50%, #fff 50%);
 }
 // playas
-
-
 
 .intro-playa {
   display: flex;
@@ -234,6 +242,8 @@ background: linear-gradient(0deg, $fondo 0%, $fondo 50%, #fff 50%);
   align-items: center;
   margin-top: $margen;
   padding: $margen $margen;
+  max-width: 80%;
+  margin: 0 auto;
   img {
     height: 20vw;
   }

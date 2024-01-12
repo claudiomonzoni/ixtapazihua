@@ -2,22 +2,7 @@
 
 
 
-.bandeja {
-  width: min(100% - 5rem, 60rem);
-  margin-inline: auto;
-  
-  @include cel{
-    width: min(100% - 2.6rem, 95rem);
-  }
 
-  @include hd{
-    width: min(100% - 5rem, 95rem);
-  }
-
-  @include hdplus{
-    width: min(100% - 5rem, 100rem);
-  }
-}
 
 .anime{
 transition: all .5s ease-in-out;
