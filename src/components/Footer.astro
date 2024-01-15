@@ -11,7 +11,7 @@
       />
     </div>
     <ul>
-      <li><a href="#">Playas</a></li>
+      <li><a href="/playas">Playas</a></li>
       <li><a href="#">Lugares de interes</a></li>
       <li><a href="#">Hoteles</a></li>
       <li><a href="#">Conoce Ixtapa Zihuatanejo</a></li>
@@ -92,16 +92,17 @@
     align-items: center;
     gap: $margen;
     .izq{
-        flex: 1 1 50%;
+      flex: 1 1 50%;
     }
     .der{
-        flex: 1 1 50%;
-        display: flex;
+      flex: 1 1 50%;
+      display: flex;
     }
     h3 {
       font-size: clamp(2rem, 2dvw, 2.3rem);
     }
     @include cel {
+      gap: 2rem;
       flex-wrap:wrap;
     }
   }
@@ -113,6 +114,7 @@
     vertical-align:middle; 
     white-space:0;
     width: 100%;
+    font-size: .9rem;
   }
   
   input[type="submit"]{
@@ -122,5 +124,13 @@
     padding: 1rem;
     background: $naranja;
     border-radius: 0 $radio $radio 0;
+    color: #fff;
+    cursor:pointer;
+  }
+  
+  input[type="submit"]:hover{
+    background: $fondo;
+    color:$naranja;
+    font-weight: bold;
   }
 </style>
