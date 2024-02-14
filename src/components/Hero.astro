@@ -28,7 +28,7 @@ const images = import.meta.glob("../assets/**/*");
     {
       video ? (
         <>
-          <video id="video" loop src={href} />
+          <video id="video" loop autoplay playsinline src={href} />
 
           <a href="#" id="btn-video">
             <img
