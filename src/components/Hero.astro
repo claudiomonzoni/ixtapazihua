@@ -28,7 +28,7 @@ const images = import.meta.glob("../assets/**/*");
     {
       video ? (
         <>
-          <video id="video" loop autoplay playsinline src={href} />
+          <video id="video" loop  src={href} />
 
           <a href="#" id="btn-video">
             <img
@@ -161,21 +161,25 @@ const images = import.meta.glob("../assets/**/*");
       }
     }
     #btn-video {
-      display: none;
+      // display: none;
       position: absolute;
-      top: 25dvh;
-      left: 50%;
+      top: 40dvh;
+      right: 26%;
+      @include cel{
+        top: 25dvh;
+        left: 50%;
+      }
       transform: translateX(-50%);
       width: 4rem;
-      mix-blend-mode: overlay;
       img {
         width: 100%;
         height: auto;
       }
       #pausa {
+        // mix-blend-mode: overlay;
         display: none;
         width: 80%;
-        opacity: .5;
+        opacity: .3;
       }
       @include cel {
         display: block;
