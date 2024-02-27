@@ -43,9 +43,13 @@ const images = import.meta.glob("../assets/**/*");
     place-items: center;
     .ima {
       width: 100%;
-      object-fit: cover;
       grid-column: 1 / span 4;
       grid-row: 1;
+      img{
+        
+        object-fit: cover;
+
+      }
     }
     .carta {
       width: 100%;
