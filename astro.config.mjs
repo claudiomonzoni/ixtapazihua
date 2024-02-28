@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 import mdx from "@astrojs/mdx";
 
@@ -8,5 +9,6 @@ export default defineConfig({
     port: 3030,
     host: false
   },
-  integrations: [mdx()]
+  site: 'https://ixtapazihua.com',
+  integrations: [mdx(), sitemap()]
 });
