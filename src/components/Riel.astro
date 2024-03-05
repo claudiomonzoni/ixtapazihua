@@ -193,7 +193,6 @@ const destacadas = await getCollection("playas", ({ data }) => {
       order: 1;
       width: auto;
       height: 100%;
-
       aspect-ratio: 9/8;
       @include cel {
         grid-column: 1/ -1;
@@ -201,9 +200,16 @@ const destacadas = await getCollection("playas", ({ data }) => {
         aspect-ratio: 5/7;
       }
       img {
-        width: auto;
+        width: 100%;
         height: 100%;
+        max-height: 100%;
+        max-width: 100%;
         object-fit: cover;
+        @include cel{
+          width: auto;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
   }

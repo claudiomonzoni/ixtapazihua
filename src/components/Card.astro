@@ -19,7 +19,7 @@ const { titulo, extracto, permalink, cta, ima } = Astro.props;
   </div>
 
   <div class="conte">
-    <div class="bandeja">
+    <div class="bandejaConte">
       <img class="icono" src="/icono-agua.svg" alt="icono playas" />
       <h2>{titulo}</h2>
       <p>{extracto}</p>
@@ -53,8 +53,20 @@ const { titulo, extracto, permalink, cta, ima } = Astro.props;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      color: $azul;
       padding: $margen 0;
+      h2{
+        color: $azul;
+      }
+      .bandejaConte{
+        padding: $margen;
+        @include cel{
+          padding: $margen-cel;
+        }
+        @include hdplus{
+          padding: $margen-cel;
+        }
+      }
+      
     }
     .icono {
         border-radius: none;
@@ -64,6 +76,7 @@ const { titulo, extracto, permalink, cta, ima } = Astro.props;
 
     @include cel{
     flex-wrap:wrap;
+    margin-bottom:$margen;
     .imagen img{
         aspect-ratio:1/1;
     }

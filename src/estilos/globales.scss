@@ -11,8 +11,12 @@ html {
 
   }
   @include cel {
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(16px, 1.8vw, 18px);
   }
+  @include hdplus {
+    font-size: clamp(12px, 6vw, 16px);
+  }
+
   color: $gris;
   font-family: "Poppins", sans-serif;
   // background: rgb(242, 238, 227);
@@ -158,12 +162,12 @@ b {
 // grid
 .grid {
   display: grid;
-  grid-template-columns: [pantalla-start] 3.7vw [extra-start] 3.7vw [contenido-start] 1fr [contenido-end] 3.7vw [extra-end] 3.7vw [pantalla-end];
+  grid-template-columns: [pantalla-start] 5vw [extra-start] 5vw [contenido-start] 1fr [contenido-end] 5vw [extra-end] 5vw [pantalla-end];
   @include hd {
-    grid-template-columns: [pantalla-start] 1.5vw [extra-start] 1.5vw [contenido-start] 1fr [contenido-end] 1.5vw [extra-end] 1.5vw [pantalla-end];
+    grid-template-columns: [pantalla-start] 6vw [extra-start] 6vw [contenido-start] 1fr [contenido-end] 6vw [extra-end] 6vw [pantalla-end];
   }
   @include hdplus {
-    grid-template-columns: [pantalla-start] 3.4vw [extra-start] 3.4vw [contenido-start] 1fr [contenido-end] 3.4vw [extra-end] 3.4vw [pantalla-end];
+    grid-template-columns: [pantalla-start] 6vw [extra-start] 6vw [contenido-start] 1fr [contenido-end] 6vw [extra-end] 6vw [pantalla-end];
   }
 }
 .contenido > * {
@@ -177,15 +181,11 @@ b {
 }
 .pantalla-izq > * {
   grid-column: pantalla-start / contenido-end;
-  @include cel {
-    grid-column: contenido-start / contenido-end;
-  }
+
 }
 .pantalla-der > * {
   grid-column: contenido-start / pantalla-end;
-  @include cel {
-    grid-column: contenido-start / contenido-end;
-  }
+
 }
 .bandeja {
   width: min(100% - 5rem, 90vw);
@@ -193,7 +193,7 @@ b {
 
 
   @include hdplus{
-    width: min(100% - 5rem, 100vw);
+    width: min(100% - 15rem, 100vw);
   }
 }
 
